@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<robot name="assembly" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find assembly_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find assembly_description)/urdf/assembly.trans" />
+<xacro:include filename="$(find assembly_description)/urdf/assembly.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.025000000000000005 0.024999999999999994 0.021121187277477492" rpy="0 0 0"/>
+    <mass value="0.6463224175349078"/>
+    <inertia ixx="0.000267" iyy="0.000267" izz="0.000256" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assembly_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assembly_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hoge_link_1">
+  <inertial>
+    <origin xyz="1.9426821262769067e-13 -1.3877787807814457e-17 0.03252277591602684" rpy="0 0 0"/>
+    <mass value="1.3439651407320963"/>
+    <inertia ixx="0.001071" iyy="0.002298" izz="0.003208" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.025 -0.025 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assembly_description/meshes/hoge_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.025 -0.025 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assembly_description/meshes/hoge_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="‰ñ“] 1" type="continuous">
+  <origin xyz="0.025 0.025 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="hoge_link_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>
